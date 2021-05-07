@@ -1,0 +1,8 @@
+---
+
+- name: test ping
+  hosts: vm_cible
+
+  tasks:
+  - name: ping
+    ping:
