@@ -65,3 +65,8 @@
         - 127.0.0.1
         - ::1
         - localhost
+
+    - name: Create my.cnf
+      template:
+        src: template/mysql/my.cnf
+        dest: /root/.my.cnf
