@@ -9,7 +9,7 @@
       apt_repository:
         repo: 'ppa:ondrej/php'
       ignore_errors: true
-        
+
     - name: Install PHP
       package:
         name: "{{ item }}"
@@ -24,3 +24,12 @@
       package:
         name: apache2
         state: absent
+
+# MySQL
+    - name: Install MySQL
+      package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - mysql-server
+        - python-mysqldb
