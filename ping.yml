@@ -1,7 +1,7 @@
 ---
 
 - name: test ping
-  hosts: vm_cible
+  hosts: wordpress
 
   tasks:
   - name: ping
