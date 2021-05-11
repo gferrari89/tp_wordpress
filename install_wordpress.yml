@@ -148,14 +148,14 @@
 
     - name: Does the database exist?
       command: mysql -u root wordpress -e "SELECT ID FROM wordpress.wp_users LIMIT 1;"
-      register: db_exists
+      register: db_exist
       ignore_errors: true
 
     - name: Copy Wordpress DB
       copy:
         src: files/wp-database.sql
         dest: /tmp/wp-database.sql
-      when: db_exixt.rc > 0
+      when: db_exist.rc > 0
 
     - name: Import Wordpress DB
       mysql_db:
