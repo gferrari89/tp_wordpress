@@ -11,5 +11,4 @@
       database_user: wordpressusr
       database_passwd: bananas1234
       initial_post_title: Devops Academy
-      initial_post_content: >
-      C est fantastique
+      initial_post_content: C est fantastique
