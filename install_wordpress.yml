@@ -107,7 +107,7 @@
         src: /tmp/wordpress.unzip
         dest: /temp
         remote_src: yes
-      creates: /tmp/wordpress/wp-settings.php
+        creates: /tmp/wordpress/wp-settings.php
 
     - name: Create project folder
       file:
