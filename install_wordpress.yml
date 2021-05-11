@@ -1,5 +1,15 @@
 ---
 
+- name: Prerequis
+  become: true
+  hosts: wordpress
+  tasks:
+# UNZIP
+    - name: Intall unzip package
+      package:
+        name: unzip
+        state: present
+
 - name: Installation Wordpress
   become: true
   hosts: wordpress
