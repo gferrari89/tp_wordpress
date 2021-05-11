@@ -1,3 +1,6 @@
+upstream php {
+    server unix:/run/php/php8.0-fpm.sock;
+}
 server {
         server_name book.example.com;
         root /var/www/book.example.com;
@@ -6,20 +9,20 @@ server {
 
         location = /favicon.ico {
             log_not_found off;
-            acess_log off;
+            access_log off;
         }
 
         location = /robots.txt {
             allow all;
             log_not_found off;
-            acess_log off;
+            access_log off;
         }
 
         location ~ /\. {
             deny all;
         }
 
-        location ~* /{?:uploads|files}/.*\.php$ {
+        location ~* /(?:uploads|files)/.*\.php$ {
             deny all;
         }
 
@@ -29,7 +32,7 @@ server {
 
         rewrite /wp-admin$ $scheme://$host$uri/ permanent;
 
-        location ~*^+\.(ogg|ogv|svg|svgz|eot|otf|woff|mp4|ttf|rss|atom|jpg|jpeg|gif|png|ico|zip|tgz|gz|rar|bzz|doc|xls|exe|ppt|tar|mid|wav|bmp|rtf)$   {
+        location ~*^,+\.(ogg|ogv|svg|svgz|eot|otf|woff|mp4|ttf|rss|atom|jpg|jpeg|gif|png|ico|zip|tgz|gz|rar|bzz|doc|xls|exe|ppt|tar|mid|wav|bmp|rtf)$   {
              access_log off;
              log_not_found off;
              expires max;
@@ -37,16 +40,12 @@ server {
 
         location ~ [^/]\.php(/|$) {
                 fastcgi_split_path_info ^(.+?\.php)(/.*)$;
-                if (|-f $document_root$fast_cgi_script_name) {
+                if (!-f $document_root$fast_cgi_script_name) {
                     return 404;
                 }
-                include fastcgi_param;
+                include fastcgi_params;
                 fastcgi_index index.php;
                 fastcgi_param   SCRIPT_FILENAME $document_root$fastcgi_script_name;
                 fastcgi_pass php;
-        }
-
-        upstream php {
-            server unix:/run/php/php8.0-fpm.sock;
         }
 }
