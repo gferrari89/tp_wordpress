@@ -5,3 +5,4 @@
   roles:
     - wp.php
     - wp.mysql
+    - wp.nginx
