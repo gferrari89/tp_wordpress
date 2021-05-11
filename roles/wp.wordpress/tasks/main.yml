@@ -47,7 +47,7 @@
     dest: /var/www/book.example.com/wp-config.php
 
 - name: Does the database exist?
-  command: mysql -u root wordpress -e "SELECT ID FROM wordpress.wp_users LIMIT 1;"
+  command: mysql -u root wordpress -e "SELECT ID FROM {{ database_name }}.wp_users LIMIT 1;"
   register: db_exist
   ignore_errors: true
   changed_when: false
