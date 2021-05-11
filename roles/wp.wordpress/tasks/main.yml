@@ -31,15 +31,15 @@
 
 - name: Create Wordpress MySQL database
   mysql_db:
-    name: {{ database_name }}
+    name: "{{ database_name }}"
     state: present
 
 - name: Create WordPress mysql
   mysql_user:
-    name: {{ database_user }}
+    name: "{{ database_user }}"
     host: localhost
-    password: {{ database_passwd }}
-    priv: "{{ database_name }}.*:ALL"
+    password: "{{ database_passwd }}"
+    priv: "{{ database_name }}".*:ALL
 
 - name: Create wp-config
   template:
