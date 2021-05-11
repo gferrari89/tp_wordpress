@@ -86,11 +86,11 @@
       template:
         src: templates/nginx/default.j2
         dest: /etc/nginx/site-available/default
-      notify: restart nginx 
+      notify: restart nginx
 #HANDLERS
 
-handlers:
-    - name: restart nginx
-      service:
-        name: nginx
-        state: restarted
+  handlers:
+      - name: restart nginx
+        service:
+          name: nginx
+          state: restarted
