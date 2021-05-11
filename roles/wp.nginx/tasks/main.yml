@@ -10,5 +10,4 @@
   template:
     src: templates/default.j2
     dest: /etc/nginx/sites-available/default
-  notify:
-    - restart nginx
+  notify: restart nginx
