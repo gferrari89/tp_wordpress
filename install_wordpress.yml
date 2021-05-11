@@ -82,7 +82,7 @@
         name: nginx
         state: present
 
-#    - name: create nginx config
-#      template:
-#        src: templates/nginx/default.j2
-#        dest: /etc/nginx/site-available/default
+    - name: create nginx config
+      template:
+        src: templates/nginx/default.j2
+        dest: /etc/nginx/site-available/default
