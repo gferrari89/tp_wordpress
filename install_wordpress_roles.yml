@@ -6,3 +6,4 @@
     - wp.php
     - wp.mysql
     - wp.nginx
+    - wp.wordpress
