@@ -47,18 +47,6 @@ stages {
         )
       }
     }
-    stage ('Clonage repo GIT') {
-      steps {
-      checkout([
-                $class: 'GitSCM',
-                branches: [[name: '*/develop']],
-                doGenerateSubmoduleConfigurations: false,
-                extensions: [],
-                submoduleCfg: [],
-                userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/gferrari89/tp_wordpress.git']]
-              ])
-      }
-    }
 
     stage ('PROD : Installation des produits') {
       environment {
