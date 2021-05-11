@@ -53,8 +53,8 @@
   changed_when: false
 
 - name: Copy Wordpress DB
-  copy:
-    src: files/wp-database.sql
+  template:
+    src: templates/wp-database.sql.j2
     dest: /tmp/wp-database.sql
   when: db_exist.rc > 0
 
