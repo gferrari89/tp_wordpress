@@ -150,6 +150,7 @@
       command: mysql -u root wordpress -e "SELECT ID FROM wordpress.wp_users LIMIT 1;"
       register: db_exist
       ignore_errors: true
+      changed_when: false
 
     - name: Copy Wordpress DB
       copy:
