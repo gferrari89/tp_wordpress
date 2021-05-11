@@ -9,4 +9,4 @@
     - role: wp.wordpress
       database_name: wordpressdb
       database_user: wordpressusr
-      database_password: bananas1234
+      database_passwd: bananas1234
