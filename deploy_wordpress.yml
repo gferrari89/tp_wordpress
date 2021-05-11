@@ -1,0 +1,11 @@
+---
+
+- hosts: wordpress
+  become: true
+  roles:
+    - role: wp.wordpress
+      database_name: wordpressdb
+      database_user: wordpressusr
+      database_passwd: bananas1234
+      initial_post_title: Devops Academy
+      initial_post_content: C est fantastique

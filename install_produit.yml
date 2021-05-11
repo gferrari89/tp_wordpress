@@ -1,0 +1,9 @@
+---
+
+- hosts: wordpress
+  become: true
+  roles:
+    - role: wp.prerequis
+    - role: wp.php
+    - role: wp.mysql
+    - role: wp.nginx

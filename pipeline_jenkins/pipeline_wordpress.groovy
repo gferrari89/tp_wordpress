@@ -21,15 +21,67 @@ stages {
       }
     }
 
-    stage ('DEV Invoke Ansible Playbook install_wordpress.yml') {
+    stage ('DEV : Installation des produits') {
       environment {
         ANSIBLE_FORCE_COLOR = true
       }
       steps {
         ansiblePlaybook (
           colorized: true,
-          playbook: 'install_wordpress_roles.yml',
+          playbook: 'install_produit.yml',
           inventory: 'inventories/dev/hosts',
+          extras: '${VERBOSE}'
+        )
+      }
+    }
+    stage ('DEV : Deploiement Wordpress') {
+      environment {
+        ANSIBLE_FORCE_COLOR = true
+      }
+      steps {
+        ansiblePlaybook (
+          colorized: true,
+          playbook: 'deploy_wordpress.yml',
+          inventory: 'inventories/dev/hosts',
+          extras: '${VERBOSE}'
+        )
+      }
+    }
+    stage ('Clonage repo GIT') {
+      steps {
+      checkout([
+                $class: 'GitSCM',
+                branches: [[name: '*/develop']],
+                doGenerateSubmoduleConfigurations: false,
+                extensions: [],
+                submoduleCfg: [],
+                userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/gferrari89/tp_wordpress.git']]
+              ])
+      }
+    }
+
+    stage ('PROD : Installation des produits') {
+      environment {
+        ANSIBLE_FORCE_COLOR = true
+      }
+      steps {
+        ansiblePlaybook (
+          colorized: true,
+          playbook: 'install_produit.yml',
+          inventory: 'inventories/prod/hosts',
+          extras: '${VERBOSE}'
+        )
+      }
+    }
+    stage ('PROD : Deploiement Wordpress') {
+      environment {
+        ANSIBLE_FORCE_COLOR = true
+      }
+      steps {
+        ansiblePlaybook (
+          colorized: true,
+          playbook: 'deploy_wordpress.yml',
+          inventory: 'inventories/prod/hosts',
           extras: '${VERBOSE}'
         )
       }
