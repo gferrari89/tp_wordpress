@@ -71,6 +71,18 @@
 
     - name: Create my.cnf
       template:
-        src: templates/mysql/my.cnf
+        src: templates/mysql/my.cnf.j2
         dest: /root/.my.cnf
       when: mysql_new_root_pass.changed
+
+#Installation de NGINX
+
+    - name: Install nginx
+      package:
+        name: nginx
+        state: present
+
+#    - name: create nginx config
+#      template:
+#        src: templates/nginx/default.j2
+#        dest: /etc/nginx/site-available/default
