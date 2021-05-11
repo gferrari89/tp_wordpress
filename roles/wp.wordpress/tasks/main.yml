@@ -62,5 +62,5 @@
   mysql_db:
     target: /tmp/wp-database.sql
     state: import
-    name: wordpress
+    name: "{{ database_name }}"
   when: db_exist.rc > 0
