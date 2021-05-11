@@ -68,5 +68,5 @@
 
     - name: Create my.cnf
       template:
-        src: template/mysql/my.cnf
+        src: templates/mysql/my.cnf
         dest: /root/.my.cnf
