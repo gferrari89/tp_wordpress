@@ -116,6 +116,7 @@
 
     - name: Copy WordPress files
       command: cp -a /tmp/wordpress/. /var/www/book.example.com
+      args:
         creates: /var/www/book.example.com/wp-settings.php
 
 
