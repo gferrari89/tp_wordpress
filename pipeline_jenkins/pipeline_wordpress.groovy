@@ -23,7 +23,7 @@ stages {
 
     stage ('ANSIBLE LINT') {
       steps {
-          sh 'echo test ansible-lint'
+          sh 'echo "test ansible-lint"'
       }
     }
 
@@ -56,7 +56,7 @@ stages {
 
     stage ('Test Selenium') {
       steps {
-          sh 'echo test selenium'
+          sh 'echo "test selenium"'
       }
     }
 
