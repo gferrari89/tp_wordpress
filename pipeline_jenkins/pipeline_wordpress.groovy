@@ -21,6 +21,12 @@ stages {
       }
     }
 
+    stage ('ANSIBLE LINT') {
+      steps {
+          sh 'ansible-lint -x 403 --force-color *.yml'
+      }
+    }
+
     stage ('DEV : Installation des produits') {
       environment {
         ANSIBLE_FORCE_COLOR = true
