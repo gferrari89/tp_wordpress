@@ -21,11 +21,7 @@ stages {
       }
     }
 
-    stage ('ANSIBLE LINT') {
-      steps {
-          sh 'echo "test ansible-lint"'
-      }
-    }
+
 
     stage ('DEV : Installation des produits') {
       environment {
@@ -54,11 +50,7 @@ stages {
       }
     }
 
-    stage ('Test Selenium') {
-      steps {
-          sh 'echo "test selenium"'
-      }
-    }
+
 
     stage ('PROD : Installation des produits') {
       environment {
