@@ -23,7 +23,7 @@ stages {
 
     stage ('ANSIBLE LINT') {
       steps {
-          sh 'ansible-lint -x 403 --force-color *.yml'
+          sh 'echo test ansible-lint'
       }
     }
 
@@ -51,6 +51,12 @@ stages {
           inventory: 'inventories/dev/hosts',
           extras: '${VERBOSE}'
         )
+      }
+    }
+
+    stage ('Test Selenium') {
+      steps {
+          sh 'echo test selenium'
       }
     }
 
