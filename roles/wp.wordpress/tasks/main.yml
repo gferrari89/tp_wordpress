@@ -15,19 +15,9 @@
 - name: Unzip Wordpress
   unarchive:
     src: /tmp/wordpress.zip
-    dest: /tmp
+    dest: /var/www
     remote_src: yes
-    creates: /tmp/wordpress/wp-settings.php
-
-- name: Create project folder
-  file:
-    path: /var/www/book.example.com
-    state:  directory
-
-- name: Copy WordPress files
-  command: cp -a /tmp/wordpress/. /var/www/book.example.com
-  args:
-    creates: /var/www/book.example.com/wp-settings.php
+    creates: /var/www/wordpress/wp-settings.php
 
 - name: Create Wordpress MySQL database
   mysql_db:
@@ -44,7 +34,7 @@
 - name: Create wp-config
   template:
     src: templates/wp-config.php.j2
-    dest: /var/www/book.example.com/wp-config.php
+    dest: /var/www/wordpress/wp-config.php
 
 - name: Does the database exist?
   command: mysql -u root wordpress -e "SELECT ID FROM "{{ database_name }}".wp_users LIMIT 1;"
