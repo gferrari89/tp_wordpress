@@ -1,0 +1,5 @@
+---
+
+database_name: wordpressdb_prod
+database_user: wordpressusr_prod
+database_passwd: bananas1234
