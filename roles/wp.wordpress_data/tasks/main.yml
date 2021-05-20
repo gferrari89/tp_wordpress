@@ -5,10 +5,10 @@
     name: "{{ database_name }}"
     state: present
 
-- name: Create WordPress mysql
+- name: Create WordPress MySQL user
   mysql_user:
     name: "{{ database_user }}"
-    host: "{{ ansible_host }}"
+    host: Localhost
     password: "{{ database_passwd }}"
     priv: "{{ database_name }}.*:ALL"
 
