@@ -1,10 +1,5 @@
 ---
 
-- hosts: wordpress
-  become: true
-  roles:
-    - role: wp.prerequis
-
 - hosts: web
   become: true
   roles:

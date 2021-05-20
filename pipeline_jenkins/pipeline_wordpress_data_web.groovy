@@ -21,9 +21,9 @@ stages {
       }
     }
 
-    stage ('ANSIBLE LINT') {
+    stage ('MODELE TEST') {
       steps {
-          sh 'echo "test ansible-lint"'
+          sh 'echo "test"'
       }
     }
 
@@ -51,12 +51,6 @@ stages {
           inventory: 'inventories/dev/hosts',
           extras: '${VERBOSE}'
         )
-      }
-    }
-
-    stage ('Test Selenium') {
-      steps {
-          sh 'echo "test selenium"'
       }
     }
 
