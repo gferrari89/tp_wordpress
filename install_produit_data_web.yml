@@ -1,0 +1,17 @@
+---
+
+- hosts: wordpress
+  become: true
+  roles:
+    - role: wp.prerequis
+
+- hosts: web
+  become: true
+  roles:
+    - role: wp.php
+    - role: wp.nginx
+
+- hosts: data
+  become: true
+  roles:
+    - role: wp.mysql

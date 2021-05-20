@@ -1,0 +1,24 @@
+---
+
+- hosts: wordpress
+  become: true
+  roles:
+    - role: wp.prerequis
+
+- hosts: web
+  become: true
+  roles:
+    - role: wp.wordpress_web
+      database_name: wordpressdb
+      database_user: wordpressusr
+      database_passwd: bananas1234
+
+- hosts: data
+  become: true
+  roles:
+    - role: wp.wordpress_data
+      database_name: wordpressdb
+      database_user: wordpressusr
+      database_passwd: bananas1234
+      initial_post_title: Devops Academy
+      initial_post_content: C est fantastiques
