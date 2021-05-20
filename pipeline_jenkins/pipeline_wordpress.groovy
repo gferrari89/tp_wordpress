@@ -60,7 +60,6 @@ stages {
       }
     }
 
-/*
     stage ('PROD : Installation des produits') {
       environment {
         ANSIBLE_FORCE_COLOR = true
@@ -87,6 +86,5 @@ stages {
         )
       }
     }
-*/
   }
 }
