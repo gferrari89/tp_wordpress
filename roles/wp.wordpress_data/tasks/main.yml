@@ -8,7 +8,7 @@
 - name: Create WordPress mysql
   mysql_user:
     name: "{{ database_user }}"
-    host: localhost
+    host: "{{ ansible_host }}"
     password: "{{ database_passwd }}"
     priv: "{{ database_name }}.*:ALL"
 
