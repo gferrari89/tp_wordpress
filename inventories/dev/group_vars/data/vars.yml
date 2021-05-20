@@ -1,3 +1,4 @@
 ---
 
 initial_post_content: Nous sommes sur lenvironnement de DEV
+ansible_web_host: 192.168.56.106

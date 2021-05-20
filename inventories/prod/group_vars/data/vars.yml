@@ -1,3 +1,4 @@
 ---
 
 initial_post_content: Nous sommes sur l environnement de PROD
+ansible_web_host: 192.168.56.107
