@@ -1,10 +1,12 @@
-vmcible ansible_host=192.168.56.107 ansible_user=webadmin become=yes
+vmprodweb ansible_host=192.168.56.110 ansible_user=webadmin become=yes
+vmproddata ansible_host=192.168.56.111 ansible_user=webadmin become=yes
 
 [web]
-vmcible
+vmprodweb
 
 [data]
-vmcible
+vmproddata
 
 [wordpress]
-vmcible
+vmprodweb
+vmproddata
