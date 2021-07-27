@@ -1,0 +1,4 @@
+---
+
+initial_post_content: Nous sommes sur la I-POC-IAC_machine_cible_1
+ansible_host_web: 10.3.1.7
